@@ -1,0 +1,2 @@
+# BboxInventoryApp
+Inventory backend app
