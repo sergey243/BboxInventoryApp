@@ -1,0 +1,1303 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-07 14:30+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: filters.py:12 tables.py:22
+msgid "Designation"
+msgstr "Designation"
+
+#: filters.py:13
+msgid "Designation should contain"
+msgstr "La désignation doit contenir"
+
+#: filters.py:14
+msgid "Teritorial cover"
+msgstr "Couverture territoriale"
+
+#: filters.py:40 filters.py:50 filters.py:60 tables.py:44 tables.py:54
+#: tables.py:63 templates/providers/goods/details.html:32
+#: templates/providers/services/details.html:33
+#: templates/providers/works/details.html:32
+msgid "Name"
+msgstr "Nom"
+
+#: filters.py:41 filters.py:51 filters.py:61
+msgid "Name should contain"
+msgstr "Le nom doit contenir"
+
+#: forms.py:62 forms.py:75 forms.py:88 models.py:328 models.py:337
+msgid "see provider"
+msgstr "voir le fournisseur"
+
+#: forms.py:64
+msgid "Provider with same tax identification number exist"
+msgstr "Il existe un fournisseur avec le même numéro fournisseur Unicef"
+
+#: forms.py:77 models.py:339
+msgid "Provider with same UNGM number exist"
+msgstr "Il existe un fournisseur avec le même numéro UNGM"
+
+#: forms.py:90
+msgid "Provider with same Unicef vendor number exist"
+msgstr "Il existe un fournisseur avec le même numéro fournisseur Unicef"
+
+#: forms.py:98
+msgid ""
+"No good had been selected, please select the goods provided in the field "
+"Goods provided."
+msgstr ""
+"Aucun type de bien n'a été sélectionné, veuillez sélectionner les types de "
+"bien fournis dans le champs Biens fournis."
+
+#: forms.py:100
+msgid ""
+"No city had been selected for goods, please select the city/cities where "
+"googs are provided."
+msgstr ""
+"Aucune ville n'a été sélectionnée pour les bien, veuillez sélectionner la ou "
+"les villes où les biens sont fournis."
+
+#: forms.py:108
+msgid ""
+"No work had been selected, please select the work provided in the field "
+"works provided."
+msgstr ""
+"Aucun type de travail n'a été sélectionné, veuillez sélectionner les type de "
+"travaux fournis dans le champs Travaux exécutés."
+
+#: forms.py:110
+msgid ""
+"No city had been selected for work, please select the city/cities where "
+"works are provided."
+msgstr ""
+"Aucune ville n'a été sélectionnée pour les travaux, veuillez sélectionner la "
+"ou les villes où les travaux sont exécutés."
+
+#: forms.py:117
+msgid ""
+"No service had been selected, please select the services provided in the "
+"field Services provided."
+msgstr ""
+"Aucun service n'a été sélectionné, veuillez sélectionner les services "
+"fournis dans le champs Services fournis."
+
+#: forms.py:119
+msgid ""
+"No city had been selected for services, please select the city/cities where "
+"services are provided"
+msgstr ""
+"Aucune ville n'a été sélectionnée pour les services, veuillez sélectionner "
+"la ou les villes où les services sont fournis."
+
+#: forms.py:192 forms.py:194 forms.py:196 forms.py:198 forms.py:202
+#: forms.py:204 forms.py:206 forms.py:208
+msgid "Evaluation timing confict with another evalution."
+msgstr "Le timing de l’évaluation est en conflit avec une autre évaluation."
+
+#: forms.py:220
+msgid "Period start cannot be greater or equal to period end"
+msgstr ""
+"Le début de la période ne peut pas être supérieur ou égal à la fin de la "
+"période"
+
+#: models.py:13 tables.py:26 templates/providers/goods/index.html:8
+msgid "Goods"
+msgstr "Biens"
+
+#: models.py:14 tables.py:24 templates/providers/services/index.html:8
+msgid "Services"
+msgstr "Services"
+
+#: models.py:15 templates/providers/works/index.html:8
+msgid "Works"
+msgstr "Travaux"
+
+#: models.py:19
+msgid "US Dollars"
+msgstr "Dollars américains"
+
+#: models.py:20 models.py:26
+msgid "Congolese franc"
+msgstr "Franc congolais"
+
+#: models.py:21
+msgid "Central African CFA franc"
+msgstr "Franc CFA d'Afrique centrale"
+
+#: models.py:22
+msgid "Tanzanian shilling"
+msgstr "Shilling tanzanien"
+
+#: models.py:23
+msgid "Angolan kwanza"
+msgstr "Kwanza angolais"
+
+#: models.py:24
+msgid "Ugandan Shillings"
+msgstr "Shillings ougandais"
+
+#: models.py:25
+msgid "Burundian franc"
+msgstr "Franc burundais"
+
+#: models.py:27
+msgid "Zambian kwacha"
+msgstr "Kwacha zambien"
+
+#: models.py:31
+msgid "On tender call"
+msgstr "Sur appel d'offres"
+
+#: models.py:32
+msgid "Restricted consultation"
+msgstr "Consultation restreinte"
+
+#: models.py:33
+msgid "On direct order"
+msgstr "Sur commande directe"
+
+#: models.py:37
+msgid "After sales service"
+msgstr "Service après-vente"
+
+#: models.py:38
+msgid "Discounts/rebates"
+msgstr "Remises/rabais"
+
+#: models.py:39
+msgid "On-site deliveries"
+msgstr "Livraisons sur site"
+
+#: models.py:43
+msgid "poor"
+msgstr "pauvre"
+
+#: models.py:44
+msgid "not satisfying"
+msgstr "pas satisfaisant"
+
+#: models.py:45
+msgid "acceptable"
+msgstr "acceptable"
+
+#: models.py:46
+msgid "good"
+msgstr "bien"
+
+#: models.py:47
+msgid "excelent"
+msgstr "excellent"
+
+#: models.py:51
+msgid "Yes, we can keep working with this provider."
+msgstr "Oui, nous pouvons continuer à travailler avec ce fournisseur."
+
+#: models.py:52
+msgid "No, we should not be working with this provider anymore."
+msgstr "Non, nous ne devrions plus travailler avec ce fournisseur."
+
+#: models.py:56 models.py:93 models.py:130 models.py:169 models.py:259
+#: models.py:370
+msgid "created at"
+msgstr "date de création"
+
+#: models.py:57 models.py:94 models.py:131 models.py:170 models.py:260
+#: models.py:371
+msgid "last modified at"
+msgstr "dernière modification"
+
+#: models.py:60 models.py:97 models.py:134 models.py:173
+msgid "name"
+msgstr "nom"
+
+#: models.py:61 models.py:273
+msgid "city"
+msgstr "ville"
+
+#: models.py:62 models.py:274
+msgid "address"
+msgstr "adresse"
+
+#: models.py:63 models.py:98 models.py:135 models.py:174 models.py:384
+msgid "description"
+msgstr "description"
+
+#: models.py:80
+msgid "can create a new site"
+msgstr "peut créer un nouveau site"
+
+#: models.py:81
+msgid "can remove site"
+msgstr "peut supprimer un site"
+
+#: models.py:82
+msgid "can update a site"
+msgstr "peut mettre à jour un site"
+
+#: models.py:83
+msgid "can visualize sites"
+msgstr "peut visualiser un site"
+
+#: models.py:117
+msgid "can create a new work"
+msgstr "peut créer une nouvelle catégorie de travaux"
+
+#: models.py:118
+msgid "can remove work"
+msgstr "peut supprimer une catégorie de travaux"
+
+#: models.py:119
+msgid "can update a work"
+msgstr "peut mettre à jour une catégorie de travaux"
+
+#: models.py:120
+msgid "can visualize work"
+msgstr "peut visualiser une catégorie de travaux"
+
+#: models.py:156
+msgid "can create a new service"
+msgstr "peut créer un nouveau service"
+
+#: models.py:157
+msgid "can remove service"
+msgstr "peut supprimer un services"
+
+#: models.py:158
+msgid "can update a service"
+msgstr "peut mettre à jour un service"
+
+#: models.py:159
+msgid "can visualize service"
+msgstr "peut visualiser un service"
+
+#: models.py:192
+msgid "can create a new good"
+msgstr "peut créer un nouveau bien"
+
+#: models.py:193
+msgid "can remove good"
+msgstr "peut supprimer un bien"
+
+#: models.py:194
+msgid "can update a good"
+msgstr "peut mettre à jour un bien"
+
+#: models.py:195
+msgid "can visualize good"
+msgstr "peut visualiser un bien"
+
+#: models.py:263
+msgid "designation"
+msgstr "désignation"
+
+#: models.py:264
+msgid "responsible"
+msgstr "responsable"
+
+#: models.py:265
+msgid "works executed"
+msgstr "travaux exécutés"
+
+#: models.py:266
+msgid "services provided"
+msgstr "services fournis"
+
+#: models.py:267
+msgid "good provided"
+msgstr "biens fournis"
+
+#: models.py:268
+msgid "contacts"
+msgstr "contacts"
+
+#: models.py:269
+msgid "phone"
+msgstr "téléphone"
+
+#: models.py:270
+msgid "email"
+msgstr "email"
+
+#: models.py:271
+msgid "website"
+msgstr "site web"
+
+#: models.py:272
+msgid "country"
+msgstr "pays"
+
+#: models.py:275
+msgid "subsidiaries/representations"
+msgstr "filiales/représentations"
+
+#: models.py:276
+msgid "tax id"
+msgstr "numéro d'identification fiscale"
+
+#: models.py:277 templates/providers/providers/details.html:211
+msgid "R.C.C.M"
+msgstr "R.C.C.M"
+
+#: models.py:278
+msgid "national ID"
+msgstr "identification national"
+
+#: models.py:279
+msgid "bank domiciliation"
+msgstr "domiciliation bancaire"
+
+#: models.py:280
+msgid "active since"
+msgstr "Actif depuis"
+
+#: models.py:281 templates/providers/providers/details.html:228
+msgid "UNGM number"
+msgstr "Numéro UNGM"
+
+#: models.py:282
+msgid "unicef vendo ID"
+msgstr "Numéro fournisseur Unicef"
+
+#: models.py:283
+msgid "is manifactor"
+msgstr "est manifacteur"
+
+#: models.py:284
+msgid "is importer"
+msgstr "est importateur"
+
+#: models.py:285
+msgid "is retailer"
+msgstr "est un détaillant"
+
+#: models.py:286
+msgid "is wholeseller"
+msgstr "est grossiste"
+
+#: models.py:287
+msgid "annual turnover currency"
+msgstr "devise du chiffre d'affaires annuel"
+
+#: models.py:288
+msgid "previous annual turnover"
+msgstr "chiffre d'affaires annuel précédent"
+
+#: models.py:289
+msgid "2 years back annual turnover"
+msgstr "chiffre d'affaires annuel 2 ans en arrière "
+
+#: models.py:290
+msgid "number of full time employees"
+msgstr "nombre d'employés à temps plein"
+
+#: models.py:291
+msgid "is acrredited provider"
+msgstr "est un fournisseur accrédité"
+
+#: models.py:292
+msgid "origin of goods"
+msgstr "origine des marchandises"
+
+#: models.py:293
+msgid "partners"
+msgstr "partenaires"
+
+#: models.py:294
+msgid "workspace"
+msgstr "espace de travail"
+
+#: models.py:294
+msgid "Area of your workshops/offices/stores in square meters."
+msgstr "Superficie de vos ateliers/bureaux/magasins en mètres carrés."
+
+#: models.py:295
+msgid "equipments"
+msgstr "équipements"
+
+#: models.py:296
+msgid "competition"
+msgstr "concurrents"
+
+#: models.py:297
+msgid "affiliations"
+msgstr "affiliations"
+
+#: models.py:297
+msgid "Is the provider part of a syndicate or an assciation."
+msgstr "Le fournisseur fait-il partie d'un syndicat ou d'une association."
+
+#: models.py:298
+msgid "is member of the commerce chamber"
+msgstr "est membre de la chambre de commerce"
+
+#: models.py:299
+msgid "reason for not being member of commerce chamber"
+msgstr "raison pour laquelle il n'est pas membre de la chambre de commerce"
+
+#: models.py:300
+msgid "offers previously provided"
+msgstr "offres précédemment fournies"
+
+#: models.py:301
+msgid ""
+"ordres received from Unicef, other united state organizations, bilateral "
+"coperation agencies or gorvenemental agencies fro the pqst three year"
+msgstr ""
+"ordres reçus de Unicef, d'autres organisations des États-Unis, agences de "
+"coopération bilatérales ou agences gouvernementales durant les trois "
+"dernières années"
+
+#: models.py:302
+msgid "mode of selection"
+msgstr "mode de sélection"
+
+#: models.py:303
+msgid "proposed advantages"
+msgstr "avantages proposés"
+
+#: models.py:304
+msgid "covered cities for goods"
+msgstr "villes couvertes pour biens"
+
+#: models.py:305
+msgid "covered cities for works"
+msgstr "villes couvertes pour travaux"
+
+#: models.py:306
+msgid "covered cities for services"
+msgstr "villes couvertes pour services"
+
+#: models.py:307 models.py:390
+msgid "comment"
+msgstr "commentaire"
+
+#: models.py:330
+msgid "Provider with same  Unicef vendor number exist"
+msgstr "Il existe un fournisseur avec le même numéro fournisseur Unicef"
+
+#: models.py:357
+msgid "can create a new provider"
+msgstr "Création fournisseur"
+
+#: models.py:358
+msgid "can remove provider"
+msgstr "Supprimer le fournisseur"
+
+#: models.py:359
+msgid "can update a provider"
+msgstr "peut mettre à jour un fournisseur"
+
+#: models.py:360
+msgid "can visualize provider"
+msgstr "peut visualiser un fournisseur"
+
+#: models.py:374
+msgid "provider"
+msgstr "fournisseur"
+
+#: models.py:375
+msgid "site"
+msgstr "site"
+
+#: models.py:376
+msgid "period start"
+msgstr "début de période"
+
+#: models.py:377
+msgid "period end"
+msgstr "fin de période"
+
+#: models.py:378
+msgid "works evaluated"
+msgstr "travaux évalués"
+
+#: models.py:379
+msgid "services evaluated"
+msgstr "services évalués"
+
+#: models.py:380
+msgid "good evaluated"
+msgstr "bien évalué"
+
+#: models.py:381
+msgid "LTA number"
+msgstr "Numéro LTA"
+
+#: models.py:382
+msgid "PO number"
+msgstr "Numéro de bon de commande"
+
+#: models.py:383
+msgid "PO amount"
+msgstr "Montant du bon de commande"
+
+#: models.py:385
+msgid "fiability"
+msgstr "fiabilité"
+
+#: models.py:385 models.py:386 models.py:387 models.py:388
+msgid "Note on the scale from 1 to 5"
+msgstr "Note sur l'échelle de 1 à 5"
+
+#: models.py:386
+msgid "timing"
+msgstr "Ponctualité"
+
+#: models.py:387
+msgid "quality-price report"
+msgstr "rapport qualité prix"
+
+#: models.py:388
+msgid "technical specifications"
+msgstr "spécifications techniques"
+
+#: models.py:389
+msgid "conclusion"
+msgstr "conclusion"
+
+#: models.py:419
+msgid "can create a new evaluation"
+msgstr "peut créer une nouvelle évaluation"
+
+#: models.py:420
+msgid "can remove evaluation"
+msgstr "peut supprimer une évaluation"
+
+#: models.py:421
+msgid "can update an evaluation"
+msgstr "peut mettre à jour une évaluation"
+
+#: models.py:422
+msgid "can visualize evaluation"
+msgstr "peut visualiser l'évaluation"
+
+#: tables.py:20 tables.py:71
+msgid "Created at"
+msgstr "date de création"
+
+#: tables.py:21 tables.py:72
+msgid "Created by"
+msgstr "Créé par"
+
+#: tables.py:23 templates/providers/providers/details.html:156
+msgid "City"
+msgstr "Ville"
+
+#: tables.py:25
+msgid "Contractor"
+msgstr "Contractant"
+
+#: tables.py:36 tables.py:38 tables.py:40
+#: templates/providers/providers/details.html:238
+#: templates/providers/providers/details.html:239
+#: templates/providers/providers/details.html:240
+#: templates/providers/providers/details.html:241
+#: templates/providers/providers/details.html:242
+#: templates/providers/providers/details.html:259
+msgid "Yes"
+msgstr "Oui"
+
+#: tables.py:36 tables.py:38 tables.py:40
+#: templates/providers/providers/details.html:238
+#: templates/providers/providers/details.html:239
+#: templates/providers/providers/details.html:240
+#: templates/providers/providers/details.html:241
+#: templates/providers/providers/details.html:242
+#: templates/providers/providers/details.html:259
+msgid "No"
+msgstr "Non"
+
+#: tables.py:45 tables.py:55 tables.py:64
+#: templates/providers/goods/details.html:38
+#: templates/providers/services/details.html:39
+#: templates/providers/works/details.html:38
+msgid "Description"
+msgstr "Description"
+
+#: tables.py:73 templates/providers/evaluations/pdf.html:131
+msgid "Performance"
+msgstr "Performance"
+
+#: tables.py:75
+msgid "Result"
+msgstr "Résultat"
+
+#: templates/providers/evaluations/form.html:5
+#: templates/providers/goods/form.html:5 templates/providers/goods/form.html:30
+msgid "Editing good"
+msgstr "Editer un bien"
+
+#: templates/providers/evaluations/form.html:6
+#: templates/providers/goods/form.html:6 templates/providers/goods/form.html:32
+msgid "Creating good"
+msgstr "Créer un bien"
+
+#: templates/providers/evaluations/form.html:28
+msgid "Editing evaluation of"
+msgstr "Édition de l'évaluation de"
+
+#: templates/providers/evaluations/form.html:32
+#: templates/providers/evaluations/pdf.html:12
+msgid "Creation date: "
+msgstr "Date de création: "
+
+#: templates/providers/evaluations/form.html:33
+#: templates/providers/evaluations/pdf.html:13
+msgid "Creator: "
+msgstr "Créateur: "
+
+#: templates/providers/evaluations/form.html:34
+#: templates/providers/evaluations/pdf.html:14
+msgid "Modification date: "
+msgstr "Dernière modification: "
+
+#: templates/providers/evaluations/form.html:35
+#: templates/providers/evaluations/pdf.html:15
+msgid "Modify by: "
+msgstr "Modifiée par :"
+
+#: templates/providers/evaluations/form.html:39
+msgid "Making evaluation for"
+msgstr "Faire une évaluation pour"
+
+#: templates/providers/evaluations/form.html:45
+#: templates/providers/goods/details.html:25
+#: templates/providers/providers/details.html:26
+#: templates/providers/services/details.html:27
+#: templates/providers/works/details.html:25
+msgid "Delete"
+msgstr "Supprimer"
+
+#: templates/providers/evaluations/form.html:45
+msgid "Printable page"
+msgstr "Page imprimable"
+
+#: templates/providers/evaluations/form.html:57
+#: templates/providers/goods/form.html:39
+#: templates/providers/providers/export.html:27
+#: templates/providers/providers/form.html:42
+#: templates/providers/providers/index.html:40
+#: templates/providers/services/form.html:39
+#: templates/providers/works/form.html:39
+msgid "Submit"
+msgstr "Soumettre"
+
+#: templates/providers/evaluations/form.html:65
+#: templates/providers/providers/details.html:411
+msgid "Delete provider"
+msgstr "Supprimer le fournisseur"
+
+#: templates/providers/evaluations/form.html:69
+msgid ""
+"Do you really want to delete the evaluation\n"
+"              "
+msgstr ""
+"Voulez-vous vraiment supprimer l'évaluation\n"
+" "
+
+#: templates/providers/evaluations/form.html:73
+#: templates/providers/goods/details.html:80
+#: templates/providers/goods/index.html:87
+#: templates/providers/providers/details.html:419
+#: templates/providers/providers/index.html:98
+#: templates/providers/services/details.html:80
+#: templates/providers/services/index.html:86
+#: templates/providers/works/details.html:78
+#: templates/providers/works/index.html:87
+msgid "Cancel"
+msgstr "Annuler"
+
+#: templates/providers/evaluations/form.html:75
+#: templates/providers/goods/details.html:85
+#: templates/providers/goods/index.html:103
+#: templates/providers/providers/details.html:421
+#: templates/providers/providers/index.html:112
+#: templates/providers/services/details.html:85
+#: templates/providers/services/index.html:102
+#: templates/providers/works/details.html:83
+#: templates/providers/works/index.html:103
+msgid "Confirm"
+msgstr "Confirmer"
+
+#: templates/providers/evaluations/pdf.html:9
+msgid "Evaluation for: "
+msgstr "Évaluation pour"
+
+#: templates/providers/evaluations/pdf.html:19
+msgid "Evaluation Details"
+msgstr "Détails de l'Évaluation"
+
+#: templates/providers/evaluations/pdf.html:23
+msgid "Start Period"
+msgstr "Début de Période"
+
+#: templates/providers/evaluations/pdf.html:31
+msgid "End Period"
+msgstr "Fin de Période"
+
+#: templates/providers/evaluations/pdf.html:39
+msgid "Site"
+msgstr "Site"
+
+#: templates/providers/evaluations/pdf.html:42
+msgid "Address: "
+msgstr "Adresse: "
+
+#: templates/providers/evaluations/pdf.html:48
+msgid "PO Number"
+msgstr "Numéro de bon de commande"
+
+#: templates/providers/evaluations/pdf.html:56
+msgid "PO Amount"
+msgstr "Montant du bon de commande"
+
+#: templates/providers/evaluations/pdf.html:64
+msgid "LTA Number"
+msgstr "Numéro LTA"
+
+#: templates/providers/evaluations/pdf.html:76
+msgid "Evaluation Target"
+msgstr "Cible de l'Évaluation"
+
+#: templates/providers/evaluations/pdf.html:80
+msgid "Goods Evaluated"
+msgstr "Biens évalués"
+
+#: templates/providers/evaluations/pdf.html:88
+#: templates/providers/evaluations/pdf.html:104
+#: templates/providers/evaluations/pdf.html:120
+msgid "Not specified"
+msgstr "Non fourni"
+
+#: templates/providers/evaluations/pdf.html:96
+msgid "Services Evaluated"
+msgstr "Services évalués"
+
+#: templates/providers/evaluations/pdf.html:112
+msgid "Works Evaluated"
+msgstr "Travaux évalués"
+
+#: templates/providers/evaluations/pdf.html:135
+msgid "Fiability"
+msgstr "Fiabilité"
+
+#: templates/providers/evaluations/pdf.html:143
+msgid "Ponctuality"
+msgstr "Ponctualité"
+
+#: templates/providers/evaluations/pdf.html:151
+msgid "Quality vs Price"
+msgstr "Rapport qualité/prix"
+
+#: templates/providers/evaluations/pdf.html:159
+msgid "Technical"
+msgstr "Technicité"
+
+#: templates/providers/evaluations/pdf.html:170
+#, fuzzy
+#| msgid "conclusion"
+msgid "Conclusion"
+msgstr "conclusion"
+
+#: templates/providers/evaluations/pdf.html:174
+msgid "Comment"
+msgstr "Commentaire"
+
+#: templates/providers/evaluations/pdf.html:176
+msgid "No comment"
+msgstr "Pas de commentaire"
+
+#: templates/providers/evaluations/pdf.html:182
+msgid "Mention"
+msgstr "Mention"
+
+#: templates/providers/goods/details.html:5
+msgid "Goods details"
+msgstr "Détails des biens"
+
+#: templates/providers/goods/details.html:18
+#: templates/providers/providers/details.html:26
+#: templates/providers/services/details.html:19
+#: templates/providers/works/details.html:18
+msgid "Edit"
+msgstr "Modifier"
+
+#: templates/providers/goods/details.html:35
+#: templates/providers/goods/details.html:41
+#: templates/providers/providers/details.html:153
+#: templates/providers/providers/details.html:157
+#: templates/providers/providers/details.html:161
+#: templates/providers/providers/details.html:165
+#: templates/providers/providers/details.html:169
+#: templates/providers/providers/details.html:173
+#: templates/providers/providers/details.html:177
+#: templates/providers/providers/details.html:181
+#: templates/providers/providers/details.html:208
+#: templates/providers/providers/details.html:212
+#: templates/providers/providers/details.html:217
+#: templates/providers/providers/details.html:221
+#: templates/providers/providers/details.html:225
+#: templates/providers/providers/details.html:229
+#: templates/providers/providers/details.html:233
+#: templates/providers/providers/details.html:248
+#: templates/providers/providers/details.html:249
+#: templates/providers/providers/details.html:256
+#: templates/providers/providers/details.html:257
+#: templates/providers/providers/details.html:332
+#: templates/providers/providers/details.html:336
+#: templates/providers/providers/details.html:340
+#: templates/providers/services/details.html:36
+#: templates/providers/services/details.html:42
+#: templates/providers/works/details.html:35
+#: templates/providers/works/details.html:41
+msgid "Not provided"
+msgstr "Non fourni"
+
+#: templates/providers/goods/details.html:58
+msgid "Delete good"
+msgstr "Supprimer bien"
+
+#: templates/providers/goods/details.html:68
+msgid ""
+"Do you really want to delete the good\n"
+"              <!-- break -->\n"
+"              "
+msgstr ""
+"Voulez-vous vraiment supprimer le bien\n"
+" <!-- break -->\n"
+" "
+
+#: templates/providers/goods/index.html:25
+#: templates/providers/services/index.html:25
+#: templates/providers/works/index.html:25
+msgid "filter"
+msgstr "Filtrer"
+
+#: templates/providers/goods/index.html:40
+#: templates/providers/providers/index.html:56
+#: templates/providers/services/index.html:40
+#: templates/providers/works/index.html:40
+msgid "Bulk delete"
+msgstr "Suppression groupée"
+
+#: templates/providers/goods/index.html:49
+#: templates/providers/providers/index.html:64
+#: templates/providers/services/index.html:49
+#: templates/providers/works/index.html:49
+msgid "Create new"
+msgstr "Créer un nouveau"
+
+#: templates/providers/goods/index.html:65
+#: templates/providers/providers/index.html:79
+#: templates/providers/services/details.html:59
+#: templates/providers/services/index.html:65
+#: templates/providers/works/index.html:65
+msgid "Delete service"
+msgstr "Supprimer le service"
+
+#: templates/providers/goods/index.html:75
+msgid ""
+"Do you really want to delete theses categories\n"
+"                of goods\n"
+"                <!-- break -->\n"
+"                "
+msgstr ""
+"Voulez-vous vraiment supprimer ces catégories\n"
+" de biens\n"
+" <!-- break -->\n"
+" "
+
+#: templates/providers/providers/details.html:31
+msgid "Evaluate"
+msgstr "Évaluer"
+
+#: templates/providers/providers/details.html:46
+msgid "Evaluations"
+msgstr "Évaluations"
+
+#: templates/providers/providers/details.html:58
+msgid "General information"
+msgstr "Informations générales"
+
+#: templates/providers/providers/details.html:70
+msgid "Mean of production and distribution"
+msgstr "Moyen de production et de distribution"
+
+#: templates/providers/providers/details.html:82
+msgid "Activities"
+msgstr "Activités"
+
+#: templates/providers/providers/details.html:94
+msgid "Geographical cover"
+msgstr "Couverture géographique"
+
+#: templates/providers/providers/details.html:108
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "              <ol style=\"background: white;font-weight:bold;font-"
+#| "size:12px;width:250px;padding-top: 10px;padding-bottom: 10px\">\n"
+#| "                <li>&gt; 14 : A</li>\n"
+#| "                <li>Bewteen 14 and 10 : B</li>\n"
+#| "                <li>&lt; 10 : C</li>\n"
+#| "                <li>&lt; 3 : Warning</li>\n"
+#| "              </ol>\n"
+#| "              "
+msgid ""
+"\n"
+"              <ol style=\"background: white;font-weight:bold;font-size:12px;"
+"width:250px;padding-top: 10px;padding-bottom: 10px\">\n"
+"                <li>&gt; 14 : A</li>\n"
+"                <li>Bewteen 14 and 10 : B</li>\n"
+"                <li>&lt; 10 : C</li>\n"
+"                <li>&lt; 3 : D (Warning)</li>\n"
+"              </ol>\n"
+"              "
+msgstr ""
+"\n"
+" <ol style=\"fond : white;font-weight:bold;font-size:12px;width: 250 px ; "
+"pagging-top : 10 px ; pagging-bottom : 10 px\">\n"
+" <li>&gt; 14 : A</li>\n"
+" <li>Entre 14 et 10 : B</li>\n"
+" <li>&lt; 10 : C</li>\n"
+" <li>&lt; 3 : D (Alerte)</li>\n"
+" </ol>\n"
+" "
+
+#: templates/providers/providers/details.html:141
+msgid "Address and Contacts"
+msgstr "Adresse et contacts"
+
+#: templates/providers/providers/details.html:152
+msgid "Address"
+msgstr "Adresse et contacts"
+
+#: templates/providers/providers/details.html:160
+msgid "Responsibe"
+msgstr "Responsable"
+
+#: templates/providers/providers/details.html:164
+msgid "Phone"
+msgstr "Téléphone"
+
+#: templates/providers/providers/details.html:168
+msgid "Email"
+msgstr "Email"
+
+#: templates/providers/providers/details.html:172
+msgid "Website"
+msgstr "Site web"
+
+#: templates/providers/providers/details.html:176
+msgid "Contacts"
+msgstr "contacts"
+
+#: templates/providers/providers/details.html:180
+msgid "Subsidiaries/representations"
+msgstr "filiales/représentations"
+
+#: templates/providers/providers/details.html:196
+msgid "Adminstrative details"
+msgstr "Détails administratifs"
+
+#: templates/providers/providers/details.html:207
+msgid "National Identification"
+msgstr "Identification nationale"
+
+#: templates/providers/providers/details.html:215
+msgid "Tax identification number"
+msgstr "Numéro d'identification fiscale"
+
+#: templates/providers/providers/details.html:220
+msgid "Bank domiciliation"
+msgstr "Domiciliation bancaire"
+
+#: templates/providers/providers/details.html:224
+msgid "Active since"
+msgstr "Actif depuis"
+
+#: templates/providers/providers/details.html:232
+msgid "Unicef vendor ID"
+msgstr "Numéro UNICEF"
+
+#: templates/providers/providers/details.html:236
+msgid "Provider nature"
+msgstr "Nature du fournisseur"
+
+#: templates/providers/providers/details.html:238
+msgid "Importateur"
+msgstr "Importateur"
+
+#: templates/providers/providers/details.html:239
+msgid "Manifactor"
+msgstr "Manufacteur"
+
+#: templates/providers/providers/details.html:240
+msgid "Retailer"
+msgstr "Détaillant"
+
+#: templates/providers/providers/details.html:241
+msgid "Wholeseller"
+msgstr "Grossiste"
+
+#: templates/providers/providers/details.html:242
+msgid "Accredited distributor"
+msgstr "Distributeur agréé"
+
+#: templates/providers/providers/details.html:246
+msgid "Annual turn over"
+msgstr "Chiffre d'affaires annuel"
+
+#: templates/providers/providers/details.html:248
+msgid "Previous year to registration"
+msgstr "Année avant l'inscription"
+
+#: templates/providers/providers/details.html:249
+msgid "Two years before registration"
+msgstr "Deux ans avant l'inscription"
+
+#: templates/providers/providers/details.html:254
+msgid "Other derails"
+msgstr "Autres dérails"
+
+#: templates/providers/providers/details.html:256
+msgid "Competitors"
+msgstr "Concurrents"
+
+#: templates/providers/providers/details.html:257
+msgid "Affiliations"
+msgstr "Affiliations"
+
+#: templates/providers/providers/details.html:259
+msgid "Memberof the commerce chamber"
+msgstr "Membre de la chambre de commerce"
+
+#: templates/providers/providers/details.html:276
+msgid "Offers"
+msgstr "Offres"
+
+#: templates/providers/providers/details.html:288
+msgid "Goods provided"
+msgstr "Bien fournis"
+
+#: templates/providers/providers/details.html:298
+msgid "Services provided"
+msgstr "Services fournis"
+
+#: templates/providers/providers/details.html:308
+msgid "Works executed"
+msgstr "Travaux exécutés"
+
+#: templates/providers/providers/details.html:331
+msgid "Production equipement (with delivery equipments)"
+msgstr "Équipement de production (avec équipements de livraison)"
+
+#: templates/providers/providers/details.html:335
+msgid "Number of permanent employes"
+msgstr "Nombre d'employés permanents"
+
+#: templates/providers/providers/details.html:339
+msgid "Work spaces"
+msgstr "Espaces de travail"
+
+#: templates/providers/providers/details.html:352
+msgid ""
+"Services, goods or works offered to Unicef, other united nation agencies, "
+"bilateral coperation agencies, or gorvenmental or non governmental engencies"
+msgstr ""
+"Services, biens ou travaux offerts à Unicef, à d'autres agences des Nations "
+"Unies,agences de coopération bilatérales, agences gouvernementales ou non "
+"gouvernementales"
+
+#: templates/providers/providers/details.html:353
+#: templates/providers/providers/details.html:357
+#: templates/providers/providers/details.html:362
+msgid "No details provided"
+msgstr "Aucun détail fourni"
+
+#: templates/providers/providers/details.html:356
+msgid "Selection mode"
+msgstr "Mode de selection"
+
+#: templates/providers/providers/details.html:360
+msgid "Advantages to Unicef"
+msgstr "Avantages pour l'UNICEF"
+
+#: templates/providers/providers/details.html:374
+msgid "Provide works in"
+msgstr "Fournit des travaux à"
+
+#: templates/providers/providers/details.html:379
+#: templates/providers/providers/details.html:387
+#: templates/providers/providers/details.html:395
+msgid "None"
+msgstr "Aucun"
+
+#: templates/providers/providers/details.html:383
+msgid "Provide services in"
+msgstr "Fournit des services à"
+
+#: templates/providers/providers/details.html:391
+msgid "Provide goods in"
+msgstr "Fournit des biens à"
+
+#: templates/providers/providers/details.html:415
+msgid ""
+"Do you really want to delete the provider\n"
+"              "
+msgstr ""
+"Voulez-vous vraiment supprimer le fournisseur\n"
+" "
+
+#: templates/providers/providers/export.html:8
+#: templates/providers/providers/index.html:8
+msgid "Providers"
+msgstr "Fournisseurs"
+
+#: templates/providers/providers/form.html:5
+#: templates/providers/providers/form.html:30
+msgid "Editing provider"
+msgstr "Modification fournisseur"
+
+#: templates/providers/providers/form.html:6
+#: templates/providers/providers/form.html:32
+msgid "Creating provider"
+msgstr "Création fournisseur"
+
+#: templates/providers/providers/index.html:29
+msgid "Filters"
+msgstr "Filtres"
+
+#: templates/providers/providers/index.html:88
+msgid ""
+"Do you really want to delete theses providers\n"
+"                <!-- break -->\n"
+"                "
+msgstr ""
+"Voulez-vous vraiment supprimer ces fournisseurs\n"
+" <!-- break -->\n"
+" "
+
+#: templates/providers/services/details.html:5
+msgid "Service details"
+msgstr "Détails service"
+
+#: templates/providers/services/details.html:69
+msgid ""
+"Do you really want to delete the service\n"
+"              <!-- break -->\n"
+"              "
+msgstr ""
+"Voulez-vous vraiment supprimer le service\n"
+" <!-- break -->\n"
+" "
+
+#: templates/providers/services/form.html:5
+#: templates/providers/services/form.html:30
+msgid "Editing service"
+msgstr "Modification service"
+
+#: templates/providers/services/form.html:6
+#: templates/providers/services/form.html:32
+msgid "Creating service"
+msgstr "Création service"
+
+#: templates/providers/services/index.html:75
+msgid ""
+"Do you really want to delete theses services\n"
+"                <!-- break -->\n"
+"                "
+msgstr ""
+"Voulez-vous vraiment supprimer ces services\n"
+" <!-- break -->\n"
+"    "
+
+#: templates/providers/works/details.html:5
+msgid "Work details"
+msgstr "Détails travaux"
+
+#: templates/providers/works/details.html:58
+msgid "Delete work"
+msgstr "Supprimer travaux"
+
+#: templates/providers/works/details.html:68
+#, python-format
+msgid ""
+"Do you really want to delete the work\n"
+"              %(object.designation)s"
+msgstr ""
+"Voulez-vous vraiment supprimer le travail\n"
+" %(object.designation)s"
+
+#: templates/providers/works/form.html:5 templates/providers/works/form.html:30
+msgid "Editing work"
+msgstr "Modification travaux"
+
+#: templates/providers/works/form.html:6 templates/providers/works/form.html:32
+msgid "Creating work"
+msgstr "Création travaux"
+
+#: templates/providers/works/index.html:75
+msgid ""
+"Do you really want to delete theses categories\n"
+"                of works\n"
+"                <!-- break -->\n"
+"                "
+msgstr ""
+"Voulez-vous vraiment supprimer ces catégories\n"
+" des oeuvres\n"
+" <!-- break -->\n"
+" "
+
+#: views.py:175
+msgid "The provider was delete successfully"
+msgstr "Le fournisseur a été supprimé avec succès"
+
+#: views.py:241
+msgid "The service was delete successfully"
+msgstr "Le fournisseur a été supprimé avec succès"
+
+#: views.py:305
+msgid "The good was delete successfully"
+msgstr "Le bien a été supprimé avec succès"
+
+#: views.py:368
+msgid "The work was delete successfully"
+msgstr "Les travaux a été supprimé avec succès"
+
+#: views.py:476
+msgid "The evaluation was delete successfully"
+msgstr "L'évaluation a été supprimée avec succès"
+
+#~ msgid "Subsidiaries"
+#~ msgstr "Filiales"
+
+#~ msgid "Note"
+#~ msgstr "Note"
+
+#~ msgid "previous"
+#~ msgstr "précédent"
+
+#~ msgid "next"
+#~ msgstr "suivant"
+
+#~ msgid "A provider with the same vendor number or Unicef number exist."
+#~ msgstr ""
+#~ "Il existe un fournisseur avec le même numéro de fournisseur ou numéro "
+#~ "Unicef."

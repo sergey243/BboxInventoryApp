@@ -1,0 +1,191 @@
+{% extends "base_pdf.html" %}
+<!-- Break -->
+{% load bootstrap5 %}{% load static %} {% load i18n %}
+<!-- content Start -->
+{% block title %}Evaluation{% endblock %}
+{% block content %}
+<section class="intro-section">
+  <h2 class="section-title">
+    {% translate 'Evaluation for: ' %} {{ provider.designation }}
+  </h2>
+            <!-- Break -->
+    <p><b>{% translate 'Creation date: '  %}</b>{{ object.created_at }}
+    <br/><b>{% translate 'Creator: '  %}</b>{{ creator }}</p>
+    <p><b>{% translate 'Modification date: '  %}</b>{{ object.modified_at }}
+    <br/><b>{% translate 'Modify by: '  %}</b> {{ modifier }}</p>
+    <!-- Break -->
+</section>
+<section class="services-section">
+  <h2 class="section-title">{% trans 'Evaluation Details' %}</h2>
+  <div class="row">
+    <div class="media service-card col-lg-4">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'Start Period' %}</h5>
+        <p class="service-description">
+         {{ object.period_start }}
+        </p>
+      </div>
+    </div>
+    <div class="media service-card col-lg-4">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'End Period' %}</h5>
+        <p class="service-description">
+         {{ object.period_end }}
+        </p>
+      </div>
+    </div>
+    <div class="media service-card col-lg-4">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'Site' %}</h5>
+        <p class="service-description">
+          {{ object.site.name }}<br/>
+          {% translate 'Address: ' %}{{ object.site.address }}
+        </p>
+      </div>
+    </div>
+    <div class="media service-card col-lg-4">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'PO Number' %}</h5>
+        <p class="service-description">
+         {{ object.po_number }}
+        </p>
+      </div>
+    </div>
+    <div class="media service-card col-lg-4">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'PO Amount' %}</h5>
+        <p class="service-description">
+         {{ object.po_amount }}
+        </p>
+      </div>
+    </div>
+    <div class="media service-card col-lg-4">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'LTA Number' %}</h5>
+        <p class="service-description">
+          {{ object.lta }}
+        </p>
+      </div>
+    </div>
+    
+    
+  </div>
+</section>
+
+<section class="services-section">
+  <h2 class="section-title">{% trans 'Evaluation Target' %}</h2>
+  <div class="row">
+    <div class="media service-card col-lg-4">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'Goods Evaluated' %}</h5>
+        <p class="service-description">
+         <ul>
+            {% if goods|length > 0 %}
+            {% for good in goods %}
+                <li>{{ good }}</li>
+            {% endfor %}
+            {% else %}
+            {% trans 'Not specified' %}
+            {% endif %}
+          </ul>
+        </p>
+      </div>
+    </div>
+    <div class="media service-card col-lg-4">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'Services Evaluated' %}</h5>
+        <p class="service-description">
+         <ul>
+            {% if services|length > 0 %}
+            {% for service in services %}
+                <li>{{ service }}</li>
+            {% endfor %}
+            {% else %}
+            {% trans 'Not specified' %}
+            {% endif %}
+          </ul>
+        </p>
+      </div>
+    </div>
+    <div class="media service-card col-lg-4">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'Works Evaluated' %}</h5>
+        <p class="service-description">
+          <ul>
+            {% if works|length > 0 %}
+            {% for work in works %}
+                <li>{{ work }}</li>
+            {% endfor %}
+            {% else %}
+            {% trans 'Not specified' %}
+            {% endif %}
+          </ul>
+        </p>
+      </div>
+    </div>
+    
+    
+  </div>
+</section>
+<section class="services-section">
+  <h2 class="section-title">{% trans 'Performance' %} ({{ object.performance }})</h2>
+  <div class="row">
+    <div class="media service-card col-lg-3">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'Fiability' %}</h5>
+        <p class="service-description">
+         {{ object.fiability }}/5
+        </p>
+      </div>
+    </div>
+    <div class="media service-card col-lg-3">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'Ponctuality' %}</h5>
+        <p class="service-description">
+          {{ object.timing }}/5
+        </p>
+      </div>
+    </div>
+    <div class="media service-card col-lg-3">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'Quality vs Price' %}</h5>
+        <p class="service-description">
+          {{ object.best_value }}/5
+        </p>
+      </div>
+    </div>
+    <div class="media service-card  col-lg-3">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'Technical' %}</h5>
+        <p class="service-description">
+          {{ object.tech_specification }}/5
+        </p>
+      </div>
+    </div>
+    
+    
+  </div>
+</section>
+<section class="services-section">
+  <h2 class="section-title">{% trans 'Conclusion' %}</h2>
+  <div class="row">
+    <div class="media service-card col-12">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'Comment' %}</h5>
+        <p class="service-description">
+         {% if object.comment  %}{{ object.comment }}{% else %}{% translate 'No comment' %}{% endif %}
+        </p>
+      </div>
+    </div>
+    <div class="media service-card col-12">
+      <div class="media-body">
+        <h5 class="service-title">{% trans 'Mention' %}</h5>
+        <p class="service-description">
+         {{ conclusion }}
+        </p>
+      </div>
+    </div>
+</section>
+{% endblock content %}
+<!-- content End -->
+{% block js %}{% endblock %}

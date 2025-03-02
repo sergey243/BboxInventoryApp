@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+<!--Loading libraries-->
+{% load static %} {% load i18n %} {% load render_table from django_tables2 %}
+<!-- Break -->
+{% load bootstrap5 %}{% load crispy_forms_tags %}
+<!--End loading libraries-->
+<!-- Title -->
+{% block title %}{% translate 'Providers' %}{% endblock %}
+<!-- End title -->
+<!-- Assets -->
+{% block assets %} {% endblock %}
+<!-- End assets -->
+<!-- Content -->
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+  <div class="row g-4">
+    <div class="col-12">
+      <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4"></h6>
+        <div class="row g-4">
+          <div class="col-6">
+            <a
+              class=""
+              data-bs-toggle="collapse"
+              href="#collapseExample"
+              role="button"
+              aria-expanded="false"
+              aria-controls="collapseExample">
+              {% translate 'Filters' %}
+            </a>
+          </div>
+        </div>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <form action="." method="get" class="form form-inline">
+              {% csrf_token %} {{ filter.form|crispy }}
+              <!-- Break -->
+              <input
+                type="submit"
+                value="{% trans 'Submit' %}"
+                class="btn btn-success" />
+            </form>
+          </div>
+        </div>
+
+        <div class="table-responsive">{% render_table table %}</div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <button
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              id="delbutton"
+              type="button"
+              class="btn btn-primary red"
+              disabled>
+              {% translate 'Bulk delete' %}
+            </button>
+          </div>
+          <div>
+            <a
+              href="{% url 'provider-create' %}"
+              class="btn btn-primary red"
+              type="submit">
+              {% translate 'Create new' %}
+            </a>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  {% translate 'Delete service' %}
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                {% blocktrans %}Do you really want to delete theses providers
+                <!-- break -->
+                {% endblocktrans %}{{object.name }}
+                <!-- break -->
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal">
+                  {% translate 'Cancel' %}
+                </button>
+                <form method="post" action="{% url 'providers-delete' %}">
+                  {% csrf_token %}
+                  <input
+                    id="selection"
+                    name="selection"
+                    type="text"
+                    value="[]"
+                    hidden />
+                  <button
+                    id="delbutton"
+                    type="submit"
+                    class="btn btn-primary red">
+                    {% translate 'Confirm' %}
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Modal -->
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+<!-- End content -->
+<!-- Js -->
+{% block js %}
+<script>
+  $(document).ready(function () {
+    var checkbox = $("tbody input[type='checkbox']"),
+      submitButton = $("#delbutton"),
+      selection = [],
+      full_selection = [],
+      selected = $("#selection"),
+      maincheckbox = $("thead input[type='checkbox']"),
+      csrftoken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+
+    $("tbody input[type='checkbox']").each(function (index, item) {
+      full_selection.push(item.value);
+    });
+    checkbox.click(function () {
+      submitButton.attr("disabled", !checkbox.is(":checked"));
+    });
+    var delbutton = $("#bulkdelete");
+
+    var selection = new Array();
+    maincheckbox.change(function () {
+      checkbox.prop("checked", this.checked);
+      submitButton.attr("disabled", !this.checked);
+      if (this.checked) {
+        selection = full_selection;
+      } else {
+        selection = [];
+      }
+    });
+    checkbox.change(function () {
+      if (this.checked) {
+        selection.push(this.value);
+      } else {
+        const index = selection.indexOf(this.value);
+        if (index > -1) {
+          // only splice array when item is found
+          selection.splice(index, 1); // 2nd parameter means remove one item only
+        }
+      }
+      $("input#selection").prop("value", selection.join(","));
+    });
+    submitButton.click(function () {
+      console.log(selection.join(","));
+    });
+  });
+</script>
+{% endblock %}
+<!-- End Js -->

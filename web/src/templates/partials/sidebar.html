@@ -1,0 +1,54 @@
+{% load i18n %}{% load account %}{% load link_tags %} {% load static %}
+<div class="sidebar pe-4 pb-3">
+  <nav class="navbar bg-light navbar-light">
+    <a href="/" class="navbar-brand mx-4 mb-3">
+      <h3 class="text-primary">Gestion</h3>
+      <h4 class="text-primary">Fournisseurs</h4>
+    </a>
+    <div class="d-flex align-items-center ms-4 mb-4">
+      <div class="position-relative">
+        <img
+          class="rounded-circle"
+          src="{% if user.profil.picture %}{% else %}{% static 'assets/images/avatar-3814049_1280.webp' %}{% endif %}"
+          alt=""
+          style="width: 40px; height: 40px"
+        />
+        <div
+          class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"
+        ></div>
+      </div>
+      <div class="ms-3">
+        <h6 class="mb-0">{{ user.first_name }} {{ user.last_name }}</h6>
+        <span>{{ user.username }}</span>
+      </div>
+    </div>
+    <div class="navbar-nav w-100">
+      <a href="/" class="nav-item nav-link {% if request.path == '/'  %} active {% endif %}"
+        ><i class="fa fa-tachometer-alt me-2"></i>{% translate "Dashboard" %}</a
+      >
+      <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-shop me-2"></i>{% translate 'Providers' %}</a>
+          <div class="dropdown-menu bg-transparent border-0">
+              <a href="{% url 'providers-list' %}" class="dropdown-item {% if request.path|active:'explore'  %} active {% endif %}">{% trans "Explore" %}</a>
+              <a href="{% url 'providers-export' %}" class="dropdown-item {% if request.path|active:'export'  %} active {% endif %}">{% trans "Export" %}</a>
+          </div>
+      </div>
+
+      <a href="{% url 'services-list' %}" class="nav-item nav-link {% if request.path|active:'services'  %} active {% endif %}"
+        ><i class="fa fa-suitcase me-2"></i>{% translate 'Services' %}</a
+      >
+      <a href="{% url 'goods-list' %}" class="nav-item nav-link {% if request.path|active:'goods'  %} active {% endif %}"
+        ><i class="fa fa-cart-plus me-2"></i>{% translate 'Goods' %}</a
+      >
+      <a href="{% url 'works-list' %}" class="nav-item nav-link {% if request.path|active:'works'  %} active {% endif %}"
+        ><i class="fa fa-industry me-2"></i>{% translate 'Works' %}</a
+      >
+      </div>
+      <a class="navbar-brand" style="position: absolute;bottom:-150px;left:30px;background-size: cover;width: 180px; height: 100px;background-image: url(&quot;{% static 'assets/images/logo-unicef.jpg' %}&quot;);" href="/">       
+      </a>
+    </div>
+
+  </nav>
+ 
+
+</div>

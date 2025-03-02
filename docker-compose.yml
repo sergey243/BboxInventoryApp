@@ -1,0 +1,111 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: inventory_mngt_db
+    image: postgis/postgis:16-3.4
+    #restart: always
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+    expose:
+      - 5432
+    #ports:
+    #  - "6432:5432"
+    env_file:
+      - ./.env
+    networks:
+      - network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.80"
+          memory: 150M
+        reservations:
+          cpus: "0.25"
+          memory: 20M
+
+  web:
+    container_name: inventory_mngt_app
+    build: ./web
+    #restart: always
+    # Production
+    #command: bash -c "python manage.py makemigrations  && python manage.py migrate &&  python manage.py initadmin && python manage.py collectstatic #--noinput && gunicorn --certfile=/etc/certs/localhost.crt --keyfile=/etc/certs/localhost.key app.wsgi:application --bind 0.0.0.0:443"
+    # Dev command
+    command: bash -c "python manage.py makemigrations  && python manage.py migrate && python manage.py collectstatic --noinput && django-admin compilemessages && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./web/src:/usr/src/app
+      - ./nginx/certs/:/etc/certs
+
+    expose:
+      - "443"
+      - "6800"
+      - "8000"
+    ports:
+      - "6801:6800"
+      - "8000:8000"
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+    networks:
+      - network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.80"
+          memory: 200M
+        reservations:
+          cpus: "0.50"
+          memory: 50M
+
+  pg_admin:
+    container_name: inventory_mngt_pg_admin
+    image: dpage/pgadmin4:latest
+    #restart: always
+    ports:
+      - "8001:80"
+    expose:
+      - "80"
+    environment:
+      - GUNICORN_THREADS=1
+      - PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=True
+      - PGADMIN_CONFIG_LOGIN_BANNER="Authorised users only!"
+      - PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+    networks:
+      - network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.80"
+          memory: 200M
+        reservations:
+          cpus: "0.5"
+          memory: 80M
+  nginx:
+    image: nginx:latest
+    container_name: inventory_mngt_nginx
+    #restart: always
+    volumes:
+      - ./nginx/:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - web
+    networks:
+      - network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.80"
+          memory: 150M
+        reservations:
+          cpus: "0.25"
+          memory: 80M
+networks:
+  network:
+    driver: bridge

@@ -1,0 +1,38 @@
+{% load bootstrap5 %}{% load static %} {% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{% block title %}Page Title{% endblock %}</title>
+    <!-- Icon Font Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <!-- Styles -->
+    {% bootstrap_css %}
+    <link
+      href="{% static 'templates/css/live-resume.css' %}"
+      rel="stylesheet" />
+    {% block assets %}{% endblock %}
+  </head>
+
+  <body>
+    <div class="content-wrapper">
+      <main>
+        <!-- content Start -->
+        {% block content %} {% endblock content %}
+        <!-- content End -->
+        <footer>
+          <a href="{% url 'providers-list' %}">Unicef provider app</a>. All
+          Rights Reserved 2024
+        </footer>
+      </main>
+    </div>
+    {% block js %}{% endblock %}
+  </body>
+</html>

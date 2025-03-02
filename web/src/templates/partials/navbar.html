@@ -1,0 +1,53 @@
+{% load i18n %}{% load account %}{% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+<nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+  <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+  </a>
+  <a href="#" class="sidebar-toggler flex-shrink-0">
+    <i class="fa fa-bars"></i>
+  </a>
+
+  <div class="navbar-nav align-items-center ms-auto">
+    <div class="nav-item">
+    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+      <input name="next" type="hidden" value="{{ redirect_to }}">
+      
+      <select name="language" class="form-control-inline">
+          
+          {% for language in languages %}
+              <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                  {{ language.name_local }} ({{ language.code }})
+              </option>
+          {% endfor %}
+      </select>
+      <input type="submit" class="btn btn-light" value="Go">
+    </form>
+    </div>
+    <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+        <img
+          class="rounded-circle me-lg-2"
+          src="{% if user.profil.picture %}{% else %}{% static 'assets/images/avatar-3814049_1280.webp' %}{% endif %}"
+          alt=""
+          style="width: 40px; height: 40px"
+        />
+        <span class="d-none d-lg-inline-flex"
+          >{{ user.first_name }} {{ user.last_name }}</span
+        >
+      </a>
+      <div
+        class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0"
+      >
+        <a href="{% url 'account_change_password' %}" class="dropdown-item"
+          >{% translate 'Change Password' %}</a
+        >
+        <a href="{% url 'account_logout' %}" class="dropdown-item"
+          >{% translate 'Log Out' %}</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>

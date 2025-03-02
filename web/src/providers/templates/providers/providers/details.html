@@ -1,0 +1,501 @@
+{% extends "base.html" %}
+<!-- break -->
+{% load static %} {% load i18n %} {% load render_table from django_tables2 %}
+<!-- Title -->
+{% block title %}Provider details{% endblock %}
+<!-- End title -->
+<!-- Assets -->
+{% block assets %}
+<link rel="stylesheet" href="{% static 'libs/leaflet/leaflet.css' %}" />
+<style>
+  #map {
+      width: 100%;
+      height: 500px;
+
+  }
+</style>
+{% endblock %}
+<!-- End assets -->
+<!-- Content -->
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+  <div class="row g-4">
+    <div class="col-sm-12 col-xl-12">
+      <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">{{ object.designation }}</h6>
+        <p class="mb-4"><a  href = "{% url 'provider-update' object.pk %}">{% translate 'Edit' %}</a>  |  <a data-bs-toggle="modal"onclick="return clickfunc()" data-bs-target="#exampleModal"  href = "#">{% translate 'Delete' %}</a>
+         |
+          <a
+
+            href="{% url 'evaluation-create' object.pk %}"
+            >{% translate 'Evaluate' %}</a
+          >
+        </p>
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button
+              class="nav-link active"
+              id="nav-eval-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-eval"
+              type="button"
+              role="tab"
+              aria-controls="nav-eval"
+              aria-selected="false"
+            >
+              {% translate 'Evaluations' %}
+            </button>
+            <button
+              class="nav-link"
+              id="nav-home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-home"
+              type="button"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="false"
+            >
+              {% translate 'General information' %}
+            </button>
+            <button
+              class="nav-link"
+              id="nav-profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-profile"
+              type="button"
+              role="tab"
+              aria-controls="nav-profile"
+              aria-selected="false"
+            >
+              {% translate 'Mean of production and distribution' %}
+            </button>
+            <button
+              class="nav-link"
+              id="nav-activities-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-activities"
+              type="button"
+              role="tab"
+              aria-controls="nav-activities"
+              aria-selected="false"
+            >
+              {% translate 'Activities' %}
+            </button>
+            <button
+              class="nav-link"
+              id="nav-geocover-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-geocover"
+              type="button"
+              role="tab"
+              aria-controls="nav-geocover"
+              aria-selected="false"
+            >
+              {% translate 'Geographical cover' %}
+            </button>
+          </div>
+        </nav>
+        <div class="tab-content pt-3" id="nav-tabContent">
+        <div
+            class="tab-pane fade show active"
+            id="nav-eval"
+            role="tabpanel"
+            aria-labelledby="nav-eval-tab"
+          >
+            
+             <div class="table-responsive">{% render_table table %}</div>
+             <div>
+              {% blocktranslate %}
+              <ol style="background: white;font-weight:bold;font-size:12px;width:250px;padding-top: 10px;padding-bottom: 10px">
+                <li>&gt; 14 : A</li>
+                <li>Bewteen 14 and 10 : B</li>
+                <li>&lt; 10 : C</li>
+                <li>&lt; 3 : D (Warning)</li>
+              </ol>
+              {% endblocktranslate %}
+             </div>
+            
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-home"
+            role="tabpanel"
+            aria-labelledby="nav-home-tab"
+          >
+            <div class="col-sm-12 col-xl-12">
+              <div class="bg-light rounded h-100 p-4">
+                <div
+                  class="accordion accordion-flush"
+                  id="accordionFlushExample"
+                >
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                      <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne"
+                        aria-expanded="true"
+                        aria-controls="flush-collapseOne"
+                      >
+                        {% translate 'Address and Contacts' %}
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseOne"
+                      class="accordion-collapse collapse show"
+                      aria-labelledby="flush-headingOne"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div class="accordion-body">
+                        <p>
+                          <b>{% translate 'Address' %}</b><br />
+                          {% if object.address %} {{ object.address }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'City' %}</b><br />
+                          {% if object.city %} {{ object.city }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'Responsibe' %}</b><br />
+                          {% if object.responsible %} {{ object.responsible }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'Phone' %}</b><br />
+                          {% if object.phone %} {{ object.phone }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'Email' %}</b><br />
+                          {% if object.email %} {{ object.email }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'Website' %}</b><br />
+                          {% if object.website %} {{ object.website }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'Contacts' %}</b><br />
+                          {% if object.contacts %} {{ object.contacts }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'Subsidiaries/representations' %}</b><br />
+                          {% if object.subsidiaries %} {{ object.subsidiaries }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseTwo"
+                      >
+                        {% translate 'Adminstrative details' %}
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseTwo"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="flush-headingTwo"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div class="accordion-body">
+                        <p>
+                          <b>{% translate 'National Identification' %}</b><br />
+                          {% if object.national_id %} {{ object.national_id }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'R.C.C.M' %}</b><br />
+                          {% if object.rccm %} {{ object.rccm }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'Tax identification number' %}</b
+                          ><br />
+                          {% if object.tax_id %} {{ object.tax_id }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'Bank domiciliation' %}</b><br />
+                          {% if object.bank_domiciliation %} {{ object.bank_domiciliation }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'Active since' %}</b><br />
+                          {% if object.active_since %} {{ object.active_since }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'UNGM number' %}</b><br />
+                          {% if object.ungm_number %} {{ object.ungm_number }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'Unicef vendor ID' %}</b><br />
+                          {% if object.unicef_vendor_number %} {{ object.unicef_vendor_number }}{% else %}{% translate 'Not provided' %}{% endif %}
+                        </p>
+                        <p>
+                          <b>{% translate 'Provider nature' %}</b><br />
+                          <ul>
+                            <li>{% translate 'Importateur' %}: {% if object.is_importer %}{% translate 'Yes' %} {% if object.goods_orgin %}(with goods comming from {{ object.goods_orgin }}){% endif %}{% else %}{% translate 'No' %}{% endif %}</li>
+                            <li>{% translate 'Manifactor' %}: {% if object.is_manifactor %}{% translate 'Yes' %}{% else %}{% translate 'No' %}{% endif %}</li>
+                            <li>{% translate 'Retailer' %}: {% if object.is_retailer %}{% translate 'Yes' %}{% else %}{% translate 'No' %}{% endif %}</li>
+                            <li>{% translate 'Wholeseller' %}: {% if object.is_wholeseller %}{% translate 'Yes' %}{% else %}{% translate 'No' %}{% endif %}</li>
+                            <li>{% translate 'Accredited distributor' %}: {% if object.is_accredited_provider %}{% translate 'Yes' %}{% if object.partners %} (with {{ object.partners }}){% endif %}{% else %}{% translate 'No' %}{% endif %}</li>
+                          </ul>
+                        </p>
+                        <p>
+                          <b>{% translate 'Annual turn over' %}</b><br />
+                          <ol>
+                            <li>{% translate 'Previous year to registration' %}: {% if object.annual_turnover_crncy %}{{ object.annual_turnover_crncy }}{% endif %}{% if object.last_turnover %} {{ object.last_turnover }}{% else %}{% translate 'Not provided' %}{% endif %}</li>
+                            <li>{% translate 'Two years before registration' %}: {% if object.annual_turnover_crncy %}{{ object.annual_turnover_crncy }}{% endif %} {% if object.past_annual_turnover %} {{ object.past_annual_turnover }}{% else %}{% translate 'Not provided' %}{% endif %}</li>
+                          </ol>
+                      
+                        </p>
+                        <p>
+                          <b>{% translate 'Other derails' %}</b><br />
+                          <ol>
+                            <li>{% translate 'Competitors' %}: {% if object.competition %} {{ object.competition }}{% else %}{% translate 'Not provided' %}{% endif %}</li>
+                            <li>{% translate 'Affiliations' %}: {% if object.affiliations %} {{ object.affiliations }}{% else %}{% translate 'Not provided' %}
+                              {% endif %}</li>
+                            <li>{% translate 'Memberof the commerce chamber' %}: {% if object.affiliate_to_commerce_chamber %} {% translate 'Yes' %}{% else %}{% translate 'No' %} {% if object.reason_no_affiliate %}-  {{ object.reason_no_affiliate }}{% endif %}{% endif %}</li>
+                          </ol>
+                      
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseThree"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseThree"
+                      >
+                        {% translate 'Offers' %}
+                      </button>
+                    </h2>
+                    <div
+                      id="flush-collapseThree"
+                      class="accordion-collapse collapse"
+                      aria-labelledby="flush-headingThree"
+                      data-bs-parent="#accordionFlushExample"
+                    >
+                      <div class="accordion-body">
+                        {% if  goods_provided|length > 0%}
+                        <div>
+                          <b>{% translate 'Goods provided' %}</b><br />
+                          <ul>
+                            {% for good in goods_provided %}
+                                <li>{{ good }}</li>
+                            {% endfor %}
+                          <ul>
+                        </div>
+                        {% endif %}
+                        {% if  services_provided|length > 0%}
+                        <div>
+                          <b>{% translate 'Services provided' %}</b><br />
+                          <ul>
+                            {% for service in services_provided %}
+                                <li>{{ service }}</li>
+                            {% endfor %}
+                          <ul>
+                        </div>
+                        {% endif %}
+                        {% if  works_provided|length > 0%}
+                        <div>
+                          <b>{% translate 'Works executed' %}</b><br />
+                          <ul>
+                            {% for work in works_provided %}
+                                <li>{{ work }}</li>
+                            {% endfor %}
+                          <ul>
+                     
+                        </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-profile"
+            role="tabpanel"
+            aria-labelledby="nav-profile-tab"
+          >
+            <p>
+                <b>{% translate 'Production equipement (with delivery equipments)' %}</b><br />
+                {% if object.equipments %}{{ object.equipments }}{% else %}{% translate 'Not provided' %}{% endif %}
+            </p>
+            <p>
+                <b>{% translate 'Number of permanent employes' %}</b><br />
+                {% if object.employees_count %}{{ object.employees_count }}{% else %}{% translate 'Not provided' %}{% endif %}
+            </p>
+            <p>
+                <b>{% translate 'Work spaces' %}</b><br />
+                {% if object.workspaces %}{{ object.workspaces }}{% else %}{% translate 'Not provided' %}{% endif %}
+            </p>
+             
+            
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-activities"
+            role="tabpanel"
+            aria-labelledby="nav-activities-tab"
+          >
+            <p>
+                <b>{% translate 'Services, goods or works offered to Unicef, other united nation agencies, bilateral coperation agencies, or gorvenmental or non governmental engencies' %}</b><br />
+                {% if object.offers_previously_provided %}{{ object.offers_previously_provided }}{% else %}{% translate 'No details provided' %}{% endif %}
+            </p>
+            <p>
+                <b>{% translate 'Selection mode' %}</b><br />
+                {% if selection_mode %}{{ selection_mode | title }}{% else %}{% translate 'No details provided' %}{% endif %}
+            </p>
+            <p>
+                <b>{% translate 'Advantages to Unicef' %}</b><br />
+                {% if object.advantages %}{{ object.advantages }}
+                {% else %}{% translate 'No details provided' %}{% endif %}
+            </p>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="nav-geocover"
+            role="tabpanel"
+            aria-labelledby="nav-geocover-tab"
+          >
+            <div class="row">
+              <div class="col-sm-6 col-xl-6">
+                <div>
+                  <b>{% translate 'Provide works in' %}</b><br />
+                  {% if object.covered_cities_works.exists %}
+                    <p>{{ cities_works|join:', ' }}</p>
+            
+                  {% else %}
+                    <p>{% trans 'None' %}</p>
+                  {% endif %}
+                </div>
+                <div>
+                    <b>{% translate 'Provide services in' %}</b><br />
+                    {% if object.covered_cities_services.exists %}
+                      <p>{{ cities_services|join:', ' }}</p>
+                    {% else %}
+                      <p>{% trans 'None' %}</p>
+                    {% endif %}
+                </div>
+                <div>
+                  <b>{% translate 'Provide goods in' %}</b><br />
+                  {% if object.covered_cities_Goods.exists %}
+                    <p>{{ cities_goods|join:', ' }}</p>
+                  {% else %}
+                  <p>{% translate 'None' %}</p>
+                  {% endif %}
+                 </div>
+              </div>
+              <div class="col-sm-6 col-xl-6">
+                <div id="map"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{% translate 'Delete provider' %}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              {% blocktrans %}Do you really want to delete the provider
+              {% endblocktrans %}{{object.designation }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% translate 'Cancel' %}</button>
+                <form method="post" action="{% url 'provider-delete' object.pk %}" >{% csrf_token %} 
+                    <button type="submit" class="btn btn-primary" >{% translate 'Confirm' %}</button>
+                </form>
+                
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+<!-- End content -->
+<!-- Js -->
+{% block js %}
+<script src="{% static 'libs/leaflet/leaflet.js' %}" ></script>
+<!-- break -->
+<script>
+  $( document ).ready(function() {
+    //var map = L.map('map').setView([-4.0335, 21.7501], 3);
+    //var map  = L.map('map', {
+    //  center: [-4.0335162, 21.7500603],
+    //  zoom: 5
+    //});
+    var map  = L.map('map').setView([-4.0335162, 21.7500603], 20);
+    
+
+   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 5,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    var services = JSON.parse('{{ services_cities | safe }}')
+    var goods = JSON.parse('{{ goods_cities | safe }}')
+    var works = JSON.parse('{{ works_cities | safe }}')
+
+    services.map(item => {
+      var greenIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+      var marker = L.marker([item['fields']['latitude'], item['fields']['longitude']],{icon: greenIcon}).addTo(map);
+    });
+    goods.map(item => {
+      var redIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+      var marker = L.marker([item['fields']['latitude'], item['fields']['longitude']],{icon: redIcon}).addTo(map);
+    });
+    works.map(item => {
+      var violetIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+      var marker = L.marker([item['fields']['latitude'], item['fields']['longitude']],{icon: violetIcon}).addTo(map);
+    });
+    map.panTo(new L.LatLng(5.0335162, 6.7500603));
+
+    setTimeout(function(){
+       map.invalidateSize();
+       window.dispatchEvent(new Event("resize"));}, 1000);
+    
+    
+     
+  });
+
+</script>
+{% endblock %}
+<!-- End Js -->

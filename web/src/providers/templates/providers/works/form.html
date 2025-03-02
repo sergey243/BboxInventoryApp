@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+<!-- Break -->
+{% load bootstrap5 %}{% load static %} {% load i18n %}
+<!-- Title -->
+{% block title %} {% if object.pk %} {% translate 'Editing work' %} {%else%}
+{%translate 'Creating work' %} {% endif %} {% endblock %}
+<!-- End title -->
+<!-- Assets -->
+{% block assets %}
+<style>
+  form div.required label::after {
+    content: " *";
+    color: red;
+  }
+  div.invalid-feedback {
+    display: block !important;
+  }
+</style>
+{% endblock %}
+<!-- End assets -->
+<!-- Content -->
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+  <div class="row g-4">
+    <div class="col-sm-12 col-xl-12">
+      <div class="bg-light rounded h-100 p-4">
+        <h2>
+          {% if object.pk %}
+          <!-- Break -->
+          {% translate 'Editing work' %} {% else%}
+          <!-- Break -->
+          {%translate 'Creating work' %}
+          <!-- Break -->
+          {% endif %}
+        </h2>
+        <form method="post" action="" novalidate>
+          {{ form.media }} {% csrf_token %} {% bootstrap_form form %}
+          <button class="btn btn-primary" type="submit">
+            {% translate 'Submit' %}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+<!-- End content -->
+<!-- Js -->
+{% block js %}{% endblock %}
+<!-- End Js -->

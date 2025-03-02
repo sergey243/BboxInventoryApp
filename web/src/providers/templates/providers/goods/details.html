@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+<!-- break -->
+{% load static %} {% load i18n %}
+<!-- Title -->
+{% block title %}{% translate 'Goods details' %}{% endblock %}
+<!-- End title -->
+<!-- Assets -->
+{% block assets %}{% endblock %}
+<!-- End assets -->
+<!-- Content -->
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+  <div class="row g-4">
+    <div class="col-sm-12 col-xl-12">
+      <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">{{ object.name }}</h6>
+        <p class="mb-4">
+          <a href="{% url 'good-update' object.pk %}">{% translate 'Edit' %}</a>
+          |
+          <a
+            data-bs-toggle="modal"
+            onclick="return clickfunc()"
+            data-bs-target="#exampleModal"
+            href="#"
+            >{% translate 'Delete' %}</a
+          >
+        </p>
+
+        <div class="row g-4">
+          <div class="col-sm-12 col-xl-12">
+            <p>
+              <b>{% translate 'Name' %}</b><br />
+              {% if object.name %} {{ object.name }}{% else %}
+              <!-- Break -->
+              {% translate 'Not provided' %}{% endif %}
+            </p>
+            <p>
+              <b>{% translate 'Description' %}</b><br />
+              {% if object.description %} {{ object.description }}{% else %}
+              <!-- Break -->
+              {% translate 'Not provided' %}{% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                {% translate 'Delete good' %}
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              {% blocktrans %}Do you really want to delete the good
+              <!-- break -->
+              {% endblocktrans %}
+              <!-- break -->
+              {{object.name }}
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                {% translate 'Cancel' %}
+              </button>
+              <form method="post" action="{% url 'good-delete' object.pk %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">
+                  {% translate 'Confirm' %}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+<!-- End content -->
+<!-- Js -->
+{% block js %}{% endblock %}
+<!-- End Js -->

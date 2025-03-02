@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+<!-- Break -->
+{% load bootstrap5 %}{% load static %} {% load i18n %}
+<!-- Title -->
+{% block title %} {% if object.pk %} {% translate 'Editing good' %} {%else%}
+{%translate 'Creating good' %} {% endif %} {% endblock %}
+<!-- End title -->
+<!-- Assets -->
+{% block assets %}
+<style>
+  form div.required label::after {
+    content: " *";
+    color: red;
+  }
+  div.invalid-feedback { display: block !important; }
+</style>
+{% endblock %}
+<!-- End assets -->
+<!-- Content -->
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+  <div class="row g-4">
+    <div class="col-sm-12 col-xl-12">
+      <div class="bg-light rounded h-100 p-4">
+       
+          {% if object.pk %}
+          <!-- Break -->
+           <h2>{% translate 'Editing evaluation of' %}
+          <!-- Break -->
+          {{ provider.designation | title }}</h2>
+          <!-- Break -->
+          <p><b>{% translate 'Creation date: '  %}</b>{{ object.created_at }}
+          <br/><b>{% translate 'Creator: '  %}</b>{{ creator }}</p>
+          <p><b>{% translate 'Modification date: '  %}</b>{{ object.modified_at }}
+          <br/><b>{% translate 'Modify by: '  %}</b> {{ modifier }}</p>
+          <!-- Break -->
+          {%else%}
+          <!-- Break -->
+          <h2>{%translate 'Making evaluation for' %}
+          <!-- Break -->
+          {{ provider.designation | title }}</h2>
+          <!-- Break -->
+          {% endif %}
+        
+        {% if object.pk %}<a data-bs-toggle="modal"onclick="return clickfunc()" data-bs-target="#exampleModal"  href = "#">{% translate 'Delete' %}</a> | <a href = "{% url 'evaluation-print' object.pk  %}">{% translate 'Printable page' %}</a> {% endif %}
+        <form method="post" action="" novalidate>
+          {% csrf_token %}{{ form.media }}
+          <input
+            type="hidden"
+            name="provider"
+            value="{{ provider.pk }}"
+            id="id_provider"
+          />
+          {% bootstrap_form form %}
+          
+          <button class="btn btn-primary" type="submit" >
+            {% translate 'Submit' %}
+          </button>
+        </form>
+      </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{% translate 'Delete provider' %}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              {% blocktrans %}Do you really want to delete the evaluation
+              {% endblocktrans %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% translate 'Cancel' %}</button>
+                <form method="post" action="{% if object.pk %}{% url 'evaluation-delete' object.pk %}{% endif %}" >{% csrf_token %} 
+                    <button type="submit" class="btn btn-primary" >{% translate 'Confirm' %}</button>
+                </form>
+                
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+<!-- End content -->
+<!-- Js -->
+{% block js %}{% endblock %}
+<!-- End Js -->

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+<!--Loading libraries-->
+{% load static %} {% load i18n %} {% load render_table from django_tables2 %}
+<!-- Break -->
+{% load bootstrap5 %}{% load crispy_forms_tags %}
+<!--End loading libraries-->
+<!-- Title -->
+{% block title %}{% translate 'Providers' %}{% endblock %}
+<!-- End title -->
+<!-- Assets -->
+{% block assets %} {% endblock %}
+<!-- End assets -->
+<!-- Content -->
+{% block content %}
+<div class="container-fluid pt-4 px-4">
+  <div class="row g-4">
+    <div class="col-12">
+      <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4"></h6>
+        <div class="row g-4">
+          <div class="card card-body">
+            <form action="." method="post" class="form form-inline">
+              {% csrf_token %} {{ filter.form|crispy }}
+              <!-- Break -->
+              <input
+                type="submit"
+                value="{% trans 'Submit' %}"
+                class="btn btn-success"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+<!-- End content -->
+<!-- Js -->
+{% block js %} {% endblock %}
+<!-- End Js -->
